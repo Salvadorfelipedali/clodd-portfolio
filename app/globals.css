@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #0B0A24;
+  --bg-secondary: #14123A;
+  --accent-lime: #C8F25C;
+  --accent-lime-text: #C8F25C;
+  --accent-purple: #A99CF5;
+  --accent-blue: #9FD9F5;
+  --text-primary: #F0EFF8;
+  --text-muted: rgba(240, 239, 248, 0.45);
+  --text-muted2: rgba(240, 239, 248, 0.28);
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-hover-bg: rgba(255, 255, 255, 0.07);
+  --card-hover-border: rgba(169, 156, 245, 0.3);
+  --nav-bg: rgba(11, 10, 36, 0.7);
+  --pill-bg: rgba(255, 255, 255, 0.07);
+  --pill-border: rgba(255, 255, 255, 0.1);
+  --pill-active-bg: #C8F25C;
+  --pill-active-color: #0B0A24;
+  --glow-color: rgba(169, 156, 245, 0.18);
+  --award-badge-bg: rgba(200, 242, 92, 0.12);
+  --award-badge-border: rgba(200, 242, 92, 0.25);
+  --brand-label-bg: transparent;
+  --brand-label-color: var(--accent-lime-text);
+  --brand-label-padding: 0;
+  --brand-label-radius: 0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root[data-theme="light"] {
+  --bg-primary: #F4F3FF;
+  --bg-secondary: #EAE8FF;
+  --accent-lime: #C8F25C;
+  --accent-lime-text: #4A7000;
+  --text-primary: #0d0c1f;
+  --text-muted: rgba(13, 12, 31, 0.6);
+  --text-muted2: rgba(13, 12, 31, 0.35);
+  --card-bg: rgba(11, 10, 36, 0.04);
+  --card-border: rgba(11, 10, 36, 0.1);
+  --card-hover-bg: rgba(11, 10, 36, 0.07);
+  --card-hover-border: rgba(169, 156, 245, 0.5);
+  --nav-bg: rgba(244, 243, 255, 0.88);
+  --pill-bg: rgba(11, 10, 36, 0.07);
+  --pill-border: rgba(11, 10, 36, 0.14);
+  --pill-active-bg: #0d0c1f;
+  --pill-active-color: #C8F25C;
+  --glow-color: rgba(169, 156, 245, 0.12);
+  --award-badge-bg: rgba(74, 112, 0, 0.1);
+  --award-badge-border: rgba(74, 112, 0, 0.3);
+  --brand-label-bg: #C8F25C;
+  --brand-label-color: #0B0A24;
+  --brand-label-padding: 2px 7px;
+  --brand-label-radius: 4px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(169, 156, 245, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(169, 156, 245, 0.5);
+}
+
+/* Hide Next.js dev tools button */
+nextjs-portal {
+  display: none !important;
+}
+
+/* Responsive side padding */
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}
+
+/* Selection */
+::selection {
+  background: rgba(200, 242, 92, 0.3);
+  color: var(--text-primary);
 }
