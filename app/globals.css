@@ -107,3 +107,19 @@ nextjs-portal {
   background: rgba(200, 242, 92, 0.3);
   color: var(--text-primary);
 }
+
+/* Vertical video fullscreen: keep 9:16 centered */
+.kinescope-vertical:fullscreen {
+  width: 56.25vh !important;
+  height: 100vh !important;
+  left: 50% !important;
+  top: 0 !important;
+  transform: translateX(-50%) !important;
+}
+.kinescope-vertical:-webkit-full-screen {
+  width: 56.25vh !important;
+  height: 100vh !important;
+  left: 50% !important;
+  top: 0 !important;
+  transform: translateX(-50%) !important;
+}
