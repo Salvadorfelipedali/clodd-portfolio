@@ -30,7 +30,29 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.YC_SECRET_KEY }}
           AWS_DEFAULT_REGION: ru-central1
         run: |
-          aws s3 sync out/ s3://portfolio.clodd.ru/ \
-            --endpoint-url https://storage.yandexcloud.net \
-            --delete \
-            --no-progress
+          EP="--endpoint-url https://storage.yandexcloud.net"
+          BUCKET="s3://portfolio.clodd.ru"
+
+          # JS files — must be application/javascript for browsers to execute
+          aws s3 sync out/ $BUCKET $EP --delete --no-progress \
+            --exclude "*" --include "*.js" \
+            --content-type "application/javascript"
+
+          # CSS files
+          aws s3 sync out/ $BUCKET $EP --no-progress \
+            --exclude "*" --include "*.css" \
+            --content-type "text/css"
+
+          # HTML files
+          aws s3 sync out/ $BUCKET $EP --no-progress \
+            --exclude "*" --include "*.html" \
+            --content-type "text/html; charset=utf-8"
+
+          # JSON files
+          aws s3 sync out/ $BUCKET $EP --no-progress \
+            --exclude "*" --include "*.json" \
+            --content-type "application/json"
+
+          # Everything else (images, fonts, etc.)
+          aws s3 sync out/ $BUCKET $EP --no-progress \
+            --exclude "*.js" --exclude "*.css" --exclude "*.html" --exclude "*.json"
