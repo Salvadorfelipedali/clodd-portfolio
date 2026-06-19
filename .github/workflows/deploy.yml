@@ -30,7 +30,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.YC_SECRET_KEY }}
           AWS_DEFAULT_REGION: ru-central1
         run: |
-          aws s3 sync out/ s3://clodd-portfolio/ \
+          aws s3 sync out/ s3://portfolio.clodd.ru/ \
             --endpoint-url https://storage.yandexcloud.net \
             --delete \
             --no-progress
