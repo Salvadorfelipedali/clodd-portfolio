@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Clodd — AI Visual Agency",
     description: "Создаём визуальный контент с помощью AI. Реклама, анимация, творческие проекты.",
-    url: "https://clodd.ru",
+    url: "https://portfolio.clodd.ru",
     siteName: "Clodd",
     images: [
       {
-        url: "https://clodd.ru/og-image-clodd.png",
+        url: "https://portfolio.clodd.ru/og-image-clodd.png",
         width: 1200,
         height: 630,
       },
